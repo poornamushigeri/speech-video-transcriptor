@@ -3,10 +3,6 @@
 
 An AI-powered Streamlit app that **transcribes** and **summarizes** audio or video files — including **YouTube videos** — using OpenAI Whisper and BART Transformer models.
 
-<p align="center">
-  <img src="appscreenshot.jpg" alt="App Screenshot" width="700"/>
-</p>
-
 ---
 
 ## ✨ Features
@@ -26,8 +22,6 @@ An AI-powered Streamlit app that **transcribes** and **summarizes** audio or vid
 ├── main_app.py              # Streamlit frontend logic
 ├── processing_utils.py      # Backend processing functions
 ├── requirements.txt         # Python dependencies
-├── screenshot.png           # App preview image
-├── example_output.png       # Example transcript/summary output
 └── README.md                # Project documentation
 ```
 
@@ -53,6 +47,7 @@ pip install -r requirements.txt
 
 ## 🚀 Run the App
 
+### Use this command in your terminal:
 ```bash
 streamlit run main_app.py
 ```
@@ -62,27 +57,17 @@ The app will open in your default browser at:
 http://localhost:8501
 ```
 
-> If it doesn't open automatically, copy the link above and paste it into your browser.
-
----
-
-## 🧪 Example Output
-
-Below is an example of how the app displays the generated transcript and summary after uploading a file or pasting a YouTube link.
-
-<p align="center">
-  <img src="example_output.png" alt="Transcript and Summary Output" width="700"/>
-</p>
+> If it doesn't open automatically, just copy the link above and paste it into any browser.
 
 ---
 
 ## 🧠 Powered By
 
-- OpenAI Whisper – speech recognition  
-- Hugging Face Transformers – for text summarization  
-- Streamlit – to build the UI  
-- yt-dlp – to download YouTube videos  
-- MoviePy + Pydub – for audio/video conversion  
+- [OpenAI Whisper](https://github.com/openai/whisper) – speech recognition  
+- [Transformers by Hugging Face](https://huggingface.co/transformers/) – for text summarization  
+- [Streamlit](https://streamlit.io) – to build the UI  
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) – to download YouTube videos  
+- [MoviePy](https://zulko.github.io/moviepy/) + [Pydub](https://github.com/jiaaro/pydub) – for audio/video conversion  
 
 ---
 
@@ -94,8 +79,8 @@ Below is an example of how the app displays the generated transcript and summary
 
 ---
 
-## 📌 Notes
+## 📌 Note
 
-- The summarizer truncates input to 1024 tokens for processing  
-- Whisper `base` model is used for better transcription accuracy
+- The summarizer truncates input to 1024 tokens for processing.  
+- Whisper `base` model is used for better transcription accuracy.
 ```
