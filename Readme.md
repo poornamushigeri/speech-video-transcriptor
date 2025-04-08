@@ -31,8 +31,8 @@ An AI-powered Streamlit app that **transcribes** and **summarizes** audio or vid
 
 ### 1. 🐍 Create a virtual environment
 ```bash
-conda create --name mental python=3.10 -y
-conda activate mental
+conda create --name venv python=3.10 -y
+conda activate venv
 ```
 
 ### 2. 📦 Install dependencies
