@@ -4,7 +4,6 @@ from transformers import pipeline
 import whisper
 import os
 
-# Use BART large CNN for better quality
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
 def extract_audio_from_video(video_path, output_wav_path):
@@ -21,7 +20,7 @@ def convert_audio(audio_path, output_wav_path):
     audio.export(output_wav_path, format="wav")
 
 def transcribe_audio(audio_path):
-    model = whisper.load_model("tiny")  # fast transcription
+    model = whisper.load_model("base")  # higher quality than tiny
     result = model.transcribe(audio_path)
     return result['text']
 

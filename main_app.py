@@ -8,7 +8,6 @@ from uuid import uuid4
 
 st.set_page_config(page_title="Speech Transcripter", layout="centered", page_icon="🎧")
 
-# Initial Loading Experience
 if "loaded" not in st.session_state:
     with st.spinner("🔄 Loading Speech and Video Transcripter & Summariser..."):
         time.sleep(1.5)
@@ -19,7 +18,6 @@ st.markdown(
     "Upload an *audio* or *video* file or paste a *YouTube link* to generate an AI-powered *transcript and summary*."
 )
 
-# ---- Upload or URL Section ----
 tab1, tab2 = st.tabs(["📤 Upload File", "🌐 Paste YouTube Link"])
 
 video_path = None
@@ -39,15 +37,19 @@ with tab2:
         video_id = str(uuid4())[:8]
         temp_filename = f"yt_video_{video_id}.mp4"
         with st.spinner("⬇ Downloading video..."):
-            result = subprocess.run(
-                ["yt-dlp", "-f", "mp4", "-o", temp_filename, youtube_url],
-                capture_output=True,
-                text=True
-            )
-            if result.returncode == 0 and Path(temp_filename).exists():
-                video_path = temp_filename
-            else:
-                st.error("⚠ Failed to download video. Please check the link.")
+            try:
+                result = subprocess.run(
+                    ["yt-dlp", "-f", "mp4", "-o", temp_filename, youtube_url],
+                    capture_output=True,
+                    text=True,
+                    timeout=60
+                )
+                if result.returncode == 0 and Path(temp_filename).exists():
+                    video_path = temp_filename
+                else:
+                    st.error("⚠ Failed to download video. Please check the link or try another one.")
+            except Exception as e:
+                st.error(f"⚠ Exception: {e}")
 
 # ---- Processing ----
 if video_path:
@@ -79,6 +81,5 @@ if video_path:
 
     st.success("🎉 Done! You can upload a new file or paste another video link.")
 
-    # Clean up
     os.remove(video_path)
     os.remove(converted_audio)
