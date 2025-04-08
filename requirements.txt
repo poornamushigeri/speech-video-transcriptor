@@ -1,8 +1,10 @@
 streamlit
-transformers
-torch
 pydub
-moviepy==1.0.3
+moviepy
+transformers
 whisper
 yt-dlp
+torch
+torchaudio
+ffmpeg-python
 
