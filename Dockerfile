@@ -1,8 +1,8 @@
 # Use a lightweight Python image
 FROM python:3.10-slim
 
-# Install system packages (FFmpeg)
-RUN apt-get update && apt-get install -y ffmpeg && apt-get clean
+# Install system packages (FFmpeg and other essentials)
+RUN apt-get update && apt-get install -y ffmpeg git && apt-get clean
 
 # Set working directory
 WORKDIR /app
@@ -11,7 +11,10 @@ WORKDIR /app
 COPY . .
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install openai-whisper correctly (force install from GitHub if needed)
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir openai-whisper
 
 # Expose the default Streamlit port
 EXPOSE 8501
