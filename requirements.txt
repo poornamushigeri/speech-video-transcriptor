@@ -1,6 +1,6 @@
 streamlit
 pydub
-moviepy
+moviepy==1.0.3
 transformers
 whisper
 yt-dlp
