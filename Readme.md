@@ -3,10 +3,6 @@
 
 An AI-powered Streamlit app that **transcribes** and **summarizes** audio or video files — including **YouTube videos** — using OpenAI Whisper and BART Transformer models.
 
-<p align="center">
-  <img src="app_screenshot.jpg" alt="App Screenshot" width="700"/>
-</p>
-
 ---
 
 ## ✨ Features
