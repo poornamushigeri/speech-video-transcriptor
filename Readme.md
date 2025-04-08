@@ -1,99 +1,93 @@
-markdown
-# 🎧 Speech and Video Transcripter & Summariser
+Absolutely! Here's a clean and professional `README.md` that you can **copy-paste directly into your project**:
 
-An AI-powered Streamlit web application that transcribes audio/video files or YouTube videos and generates concise summaries using state-of-the-art models like OpenAI Whisper and BART.
+---
 
-## 🚀 Features
+```markdown
+# 🎙️ Speech and Video Transcripter & Summariser
 
-- 📤 Upload audio/video files (`.mp3`, `.wav`, `.mp4`, `.mov`)
-- 🌐 Paste a YouTube video link for direct transcription
-- 📝 Auto-transcription using OpenAI Whisper (`tiny` model for fast inference)
-- 🧠 Text summarization using Facebook's `bart-large-cnn` model
-- ⚡ Real-time progress indicators with Streamlit UI
-- 🧹 Automatic file cleanup after processing
+An AI-powered Streamlit app that **transcribes** and **summarizes** audio or video files — including **YouTube videos** — using OpenAI Whisper and BART Transformer models.
 
-## 🛠 Tech Stack
-
-- Python
-- Streamlit
-- Whisper by OpenAI
-- HuggingFace Transformers (BART model)
-- PyDub
-- MoviePy==1.0.3
-- yt-dlp
+---
+![App Screenshot](app_screenshot.png)
 
 
-## 📸 Example Screenshot
+## ✨ Features
 
-![App Screenshot](app_screenshot.jpg)
+- 🎧 Upload audio (`.mp3`, `.wav`) or video (`.mp4`, `.mov`) files
+- 🌐 Paste a YouTube link to auto-download and transcribe
+- 📝 Generate high-quality transcripts using Whisper
+- 🧠 Get concise summaries using BART (facebook/bart-large-cnn)
+- 🚀 Streamlit-based clean, interactive UI
 
-## 📁 Project Structure
+---
 
+## 📂 Project Structure
 
-├── app.py                 # Streamlit app
-├── uttils.py              # Utility functions (transcription, summarization)
-├── requirements.txt       # Python dependencies
-├── README.md              # Project documentation
-
-
-## 📦 Installation
-
-1. Clone the repository:
-
-bash
-git clone https://github.com/poornamushigeri/Speech_Transcriptor.git
-cd Speech_Transcriptor
-
-
-2. (Optional) Create a virtual environment:
-
-bash
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-
-
-3. Install the dependencies:
-
-bash
-pip install -r requirements.txt
-
-
-4. Download required Whisper model:
-
-bash
-python -c "import whisper; whisper.load_model('tiny')"
-
-
-5. Run the Streamlit app:
-
-bash
-streamlit run app.py
-
-
-## 🌐 Live Demo
-
-[🔗 Click here to view the deployed app on Render](https://your-render-app-url.onrender.com)
-
-## 📦 Deployment on Render
-
-1. Push your code to a GitHub repository.
-2. Create a new Render Web Service from your repo.
-3. Set the start command to:
-
-bash
-streamlit run app.py --server.port=10000
-
-
-4. Add a `requirements.txt` file (if not already present) with:
-
-
-streamlit
-transformers
-pydub
-moviepy
-yt-dlp
-whisper
-torch
+```
+.
+├── main_app.py              # Streamlit frontend logic
+├── processing_utils.py      # Backend processing functions
+├── requirements.txt         # Python dependencies
+└── README.md                # Project documentation
 ```
 
-5. Set build environment to Python 3.x and deploy.
+---
+
+## ⚙️ Setup Instructions
+
+### 1. 🐍 Create a virtual environment
+```bash
+conda create --name venv python=3.10 -y
+conda venv mental
+```
+
+### 2. 📦 Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+> ✅ Make sure you have `ffmpeg` installed in your system (it’s used for audio/video processing).  
+> [Download FFmpeg](https://ffmpeg.org/download.html)
+
+---
+
+## 🚀 Run the App
+
+### Use this command in your terminal:
+```bash
+streamlit run main_app.py --browser.gatherUsageStats false
+```
+
+The app will open in your default browser at:
+```
+http://localhost:8501
+```
+
+> If it doesn't open automatically, just copy the link above and paste it into any browser.
+
+---
+
+## 🧠 Powered By
+
+- [OpenAI Whisper](https://github.com/openai/whisper) – speech recognition
+- [Transformers by Hugging Face](https://huggingface.co/transformers/) – for text summarization
+- [Streamlit](https://streamlit.io) – to build the UI
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) – to download YouTube videos
+- [MoviePy](https://zulko.github.io/moviepy/) + [Pydub](https://github.com/jiaaro/pydub) – for audio/video conversion
+
+---
+
+## 💡 Example Use Cases
+
+- Generate quick meeting or lecture summaries  
+- Transcribe interviews and podcasts  
+- Understand YouTube videos without watching them fully
+
+---
+
+## 📌 Note
+
+- The summarizer truncates input to 1024 tokens for processing.
+- Whisper `base` model is used for better transcription accuracy.
+
+---
