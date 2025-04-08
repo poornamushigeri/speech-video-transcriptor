@@ -1,7 +1,6 @@
 streamlit
 pydub
 moviepy==1.0.3
-openai-whisper
 yt-dlp
 torch==2.1.0
 torchaudio
